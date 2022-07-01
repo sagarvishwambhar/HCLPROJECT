@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | General Form Elements</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition sidebar-mini sidebar-collapse">
+<div class="wrapper">
+  <!-- Navbar -->
+
+<#include "/MasterTemplate/Header.html">
+
+  <!-- Main Sidebar Container -->
+
+<style>
+
+.withoutselect
+{
+border-style: solid;
+border-color:white;
+text-align:center;
+}
+p{
+padding:2px;
+}
+img{
+padding:5px;
+}
+</style>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="background-color:white;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+
+<div class="row" style="line-height: 0.5;">
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-information-64.png">
+<p>Basic Info</p>
+</div>
+<div class="col-md-1" style="border-style: solid;border-color:green;text-align:center;">
+<img src="/hclimage/icons8-experience-64.png">
+<p>Experience</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-skills-64.png">
+<p>Skill</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-education-64.png">
+<p>Education</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-project-64.png">
+<p>Project</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-concept-64.png">
+<p>Other</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-introvert-64.png">
+<p>Synopsis</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-download-resume-64.png">
+<p>Download</p>
+</div>
+
+
+
+<#include "/HCL/MasterSap.html">
+
+
+</div>
+
+       <!--  <div class="row mb-2">
+          <div class="col-sm-6">
+            <h4>Basic Information</h4>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Search</a></li>
+              <li class="breadcrumb-item active">Basic Information</li>
+            </ol>
+          </div>
+        </div> -->
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+<div class="row">
+<div class="col-md-8">
+<table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">#</th>
+                      <th>Organisation</th>
+                      <th>Designation</th>
+                      <th>From</th>
+                      <th>To</th>
+                      <th>Action</th>
+                      <!-- <th style="width: 40px">Action</th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1.</td>
+                      <td>HCL</td>
+                      <td>Software Developer</td>
+                      <td><#if basicrow.dateofjoining??>${basicrow.dateofjoining}</#if></td>
+                      <td>Till</td>
+                      <!-- <td><button class="btn btn-primary btn-sm">Edit</button></td>
+                       -->
+                       <td><i class="fa fa-lock" aria-hidden="true" style="color:red;"></i></td> 
+                    </tr>
+                    <#assign s=2>
+                    <#list row as rows>
+                    <tr>
+                      <td><#if s??>${s}</#if>.</td>
+                      <td><#if rows.organisationname??>${rows.organisationname}</#if></td>
+                      <td><#if rows.designation??>${rows.designation}</#if></td>
+                      <td><#if rows.formdate??>${rows.formdate}</#if></td>
+                      <td><#if rows.todate??>${rows.todate}</#if></td>
+                       <td><a href="/ExperienceSummaryEdit/<#if rows.sapid??>${rows.sapid}</#if>/<#if rows.id??>${rows.id?c}</#if>">
+                       <button class="btn btn-primary btn-sm">Edit</button></a>
+                       </td>
+                       </tr>
+                    <#assign s=s+1>
+                    </#list>
+                    
+                    
+                    
+                              </tbody>
+                </table>
+</div>
+</div>
+
+
+ <form id="detail" role="form" action="/experiencesummary/save" role="form" method="post" enctype="multipart/form-data">
+
+<div class="row">
+
+
+    <input type="hidden" class="form-control" id="inputsapid" name="sapid" placeholder="SAP ID" value="<#if basicrow.sapid??>${basicrow.sapid}</#if>" />
+                     <input type="hidden" class="form-control" id="inputemployeeid" name="employeeid" placeholder="employeeid" value="<#if basicrow.id??>${basicrow.id?c}</#if>" />
+                      
+                    
+			<div class="col-md-3">
+					<div class="form-group">
+                        <label for="inputorganisationname">Organisation Name </label>
+                        <input type="text" class="form-control" id="inputorganisationname" name="organisationname" placeholder="organisationname" value="" />
+                    </div>
+                    </div>
+                    <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="inputdesignation">Designation </label>
+                        <input type="text" class="form-control" id="inputdesignation" name="designation" placeholder="designation" value="" />
+                    </div>
+                    </div>
+                    <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="inputformdate">Form Date </label>
+                        <input type="text" class="form-control" id="inputformdate" name="formdate" placeholder="formdate" value="" />
+                    </div>
+                    </div>
+                    <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="inputtodate">To Date </label>
+                        <input type="text" class="form-control" id="inputtodate" name="todate" placeholder="todate" value="" />
+                    </div>
+                    </div>
+                    
+                    <div class="col-md-2">
+<br><h1>
+<span class="btn btn-primary" id="submit">Add</span></h1>
+</div>
+                    
+
+<div class="col-md-12 text-center">
+<br>
+<h1>
+<a href="/SkillSummary/<#if basicrow.sapid??>${basicrow.sapid}</#if>">
+<span class="btn btn-primary float-center">Next</span></a></h1>
+</div>
+
+</div>
+</form>
+
+
+     
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+  
+  <#include "/MasterTemplate/Footer.html">
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/dist/js/demo.js"></script>
+
+<script src="/sweet/sweetalert.js"> </script>
+   
+   <link href="/sweet/sweetalert.css" rel="stylesheet"> 
+
+<!-- Page specific script -->
+<script>
+
+
+$(function () {
+  bsCustomFileInput.init();
+});
+
+
+//experiencesummary
+
+$("#submit").click(function(){
+
+	var inputsapid=$("#inputsapid").val();
+//		 alert("hello");
+		  var flag = true;
+  
+
+	 if(flag==true){ 
+	var $this = $(this);
+       $this.button('loading');
+       var form = $('#detail')[0];
+	   var data = new FormData(form);
+	   //alert("sfhgdfksdhg");
+	   
+     $.ajax({
+       	  type:"post",
+       		enctype: 'multipart/form-data',
+       	 url: "/experiencesummary/save",
+       		 data: data,
+       	   processData: false, //prevent jQuery from automatically transforming the data into a query string
+       	    contentType: false,
+       	    cache: false,
+       	 success: function(msg){
+       		 swal("Success", " Experience Summary Added Successfully !", "success")
+       		setTimeout(function(){	// wait for 5 secs(2)
+         		 window.location.href= "/ExperienceSummary/"+inputsapid;
+	              }, 1000); 
+   
+       	 },
+       	  error:function(xhr, ajaxOptions, thrownError){
+       		alert("Error");
+       	  }
+       	});
+	 }
+          
+   });
+
+
+</script>
+</body>
+</html>

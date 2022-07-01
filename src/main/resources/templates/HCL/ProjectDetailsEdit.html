@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | General Form Elements</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition sidebar-mini sidebar-collapse">
+<div class="wrapper">
+  <!-- Navbar -->
+
+<#include "/MasterTemplate/Header.html">
+
+  <!-- Main Sidebar Container -->
+
+<style>
+
+.withoutselect
+{
+border-style: solid;
+border-color:white;
+text-align:center;
+}
+p{
+padding:2px;
+}
+img{
+padding:5px;
+}
+</style>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="background-color:white;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+
+<div class="row" style="line-height: 0.5;">
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-information-64.png">
+<p>Basic Info</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-experience-64.png">
+<p>Experience</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-skills-64.png">
+<p>Skill</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-education-64.png">
+<p>Education</p>
+</div>
+<div class="col-md-1" style="border-style: solid;border-color:green;text-align:center;">
+<img src="/hclimage/icons8-project-64.png">
+<p>Project</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-concept-64.png">
+<p>Other</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-introvert-64.png">
+<p>Synopsis</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-download-resume-64.png">
+<p>Download</p>
+</div>
+
+
+<#include "/HCL/MasterSap.html">
+
+
+</div>
+
+       <!--  <div class="row mb-2">
+          <div class="col-sm-6">
+            <h4>Basic Information</h4>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Search</a></li>
+              <li class="breadcrumb-item active">Basic Information</li>
+            </ol>
+          </div>
+        </div> -->
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+<div class="row">
+<div class="col-md-12">
+<table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">#</th>
+                      <th>Project</th>
+                      <th>Duration</th>
+                      <th>Team Size</th>
+                      <th>Role / Position</th>
+                      <th>Project Description</th>
+                      <th>Technical Environment</th>
+                      <th>Responsibilities</th>
+                      <th>Action</th>
+                      <!-- <th style="width: 40px">Action</th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                   
+                   <#assign s=1>
+                    <#list row as rows>
+                    <tr>
+                      <td><#if s??>${s}</#if>.</td>
+                      <td ><#if rows.projectdetailsinfo??>${rows.projectdetailsinfo}</#if></td>
+                            <td ><#if rows.duration2??>${rows.duration2}</#if></td>
+                            <td ><#if rows.teamsize??>${rows.teamsize}</#if></td>
+                            <td ><#if rows.roleposition??>${rows.roleposition}</#if></td>
+                            <td ><#if rows.projectdescription??>${rows.projectdescription}</#if></td>
+                            <td ><#if rows.technicalenvironment??>${rows.technicalenvironment}</#if></td>
+                            <td ><#if rows.responsibility??>${rows.responsibility}</#if></td>
+                       <td><a href="/ProjectDetailsEdit/<#if rows.sapid??>${rows.sapid}</#if>/<#if rows.id??>${rows.id?c}</#if>">
+                       <button class="btn btn-primary btn-sm">Edit</button></a>
+                       </td>
+                       </tr>
+                    <#assign s=s+1>
+                    </#list>
+                   
+                              </tbody>
+                </table>
+</div>
+</div>
+
+ <form id="detail" role="form" action="/projectdetails/save" role="form" method="post" enctype="multipart/form-data">
+
+    <input type="hidden" class="form-control" id="inputsapid" name="sapid" placeholder="SAP ID" value="<#if basicrow.sapid??>${basicrow.sapid}</#if>" />
+                     <input type="hidden" class="form-control" id="inputemployeeid" name="employeeid" placeholder="employeeid" value="<#if basicrow.id??>${basicrow.id?c}</#if>" />
+
+<input type="hidden" name="id" value="<#if projectrow.id??>${projectrow.id?c}</#if>">
+
+<div class="row">
+<div class="col-md-3">
+<div class="form-group">
+                        <label for="inputprojectdetails">Project Details </label>
+                        <input type="text" class="form-control" id="inputprojectdetails" name="projectdetailsinfo" placeholder="projectdetails" value="<#if projectrow.projectdetailsinfo??>${projectrow.projectdetailsinfo}</#if>" />
+                    </div>
+                    </div>
+                    <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="inputduration">Duration </label>
+                        <input type="text" class="form-control" id="inputduration" name="duration2" placeholder="duration" value="<#if projectrow.duration2??>${projectrow.duration2}</#if>" />
+                    </div>
+                    </div>
+                    <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="inputteamsize">Team Size </label>
+                        <select class="form-control" id="inputteamsize" name="teamsize">
+                        <option value="<#if projectrow.teamsize??>${projectrow.teamsize}</#if>"><#if projectrow.teamsize??>${projectrow.teamsize}</#if></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="inputroleposition">Role Position </label>
+                        <input type="text" class="form-control" id="inputroleposition" name="roleposition" placeholder="roleposition" value="<#if projectrow.roleposition??>${projectrow.roleposition}</#if>" />
+                    </div>
+                    </div>
+                    <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="inputtechnicalenvironment">Technical Environment </label>
+                        <input type="text" class="form-control" id="inputtechnicalenvironment" name="technicalenvironment" placeholder="technicalenvironment" value="<#if projectrow.technicalenvironment??>${projectrow.technicalenvironment}</#if>" />
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="inputprojectdescription">Project Description </label>
+                        <textarea type="text" class="form-control" id="inputprojectdescription" name="projectdescription" placeholder="projectdescription" rows="4">
+                        <#if projectrow.projectdescription??>${projectrow.projectdescription}</#if>
+                        </textarea>
+                    </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="inputresponsibility">Responsibility </label>
+                        <textarea type="text" class="form-control" id="inputresponsibility" name="responsibility" placeholder="responsibility" rows="4">
+                        <#if projectrow.responsibility??>${projectrow.responsibility}</#if>
+                        </textarea>
+                        
+                    </div>
+                    </div>
+
+                    
+
+			        
+                    <div class="col-md-8">
+<h1>
+<span class="btn btn-primary float-right" id="submit">Update</span></h1>
+</div>
+ 
+
+
+</div>
+
+<div class="col-md-12 text-center">
+<br>
+<h1>
+<a href="/Otherdetails/<#if basicrow.sapid??>${basicrow.sapid}</#if>">
+<span class="btn btn-primary float-center">Next</span></a></h1>
+
+
+</div>
+
+</form>
+
+</div>
+
+
+
+
+
+ </section>     
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+
+
+   
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+  
+  <#include "/MasterTemplate/Footer.html">
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script src="/sweet/sweetalert.js"> </script>
+   
+   <link href="/sweet/sweetalert.css" rel="stylesheet"> 
+
+
+<script>
+
+
+
+$(function () {
+  bsCustomFileInput.init();
+});
+
+
+$("#submit").click(function(){
+	
+	
+
+	var inputsapid=$("#inputsapid").val();
+	//	 alert("hello");
+		  var flag = true;
+  
+
+	 if(flag==true){ 
+	var $this = $(this);
+       $this.button('loading');
+       var form = $('#detail')[0];
+	   var data = new FormData(form);
+	   //alert("sfhgdfksdhg");
+	   
+     $.ajax({
+       	  type:"post",
+       		enctype: 'multipart/form-data',
+       	 url: "/projectdetails/save",
+       		 data: data,
+       	   processData: false, //prevent jQuery from automatically transforming the data into a query string
+       	    contentType: false,
+       	    cache: false,
+       	 success: function(msg){
+       		 swal("Success", " Project Added Successfully !", "success")
+       		setTimeout(function(){	// wait for 5 secs(2)
+         		 window.location.href= "/ProjectDetails/"+inputsapid;
+	              }, 1000); 
+   
+       	 },
+       	  error:function(xhr, ajaxOptions, thrownError){
+       		alert("Error");
+       	  }
+       	});
+	 }
+          
+   });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HCL | Basic Information</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition sidebar-mini sidebar-collapse">
+<div class="wrapper">
+  <!-- Navbar -->
+
+<#include "/MasterTemplate/Header.html">
+
+  <!-- Main Sidebar Container -->
+
+<style>
+
+.withoutselect
+{
+border-style: solid;
+border-color:white;
+text-align:center;
+}
+p{
+padding:2px;
+}
+img{
+padding:5px;
+}
+</style>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="background-color:white;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+
+<div class="row" style="line-height: 0.5;">
+<div class="col-md-1" style="border-style: solid;border-color:green;text-align:center;">
+<img src="/hclimage/icons8-information-64.png">
+<p>Basic Info</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-experience-64.png">
+<p>Experience</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-skills-64.png">
+<p>Skill</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-education-64.png">
+<p>Education</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-project-64.png">
+<p>Project</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-concept-64.png">
+<p>Other</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-introvert-64.png">
+<p>Synopsis</p>
+</div>
+<div class="col-md-1 withoutselect">
+<img src="/hclimage/icons8-download-resume-64.png">
+<p>Download</p>
+</div>
+
+
+<div class="col-md-4">
+<img id="blah" src="/hclimage/Blank_image.jpg" alt="your image"  style="width:100px;height:100px;"/>
+</div>
+
+</div>
+
+       <!--  <div class="row mb-2">
+          <div class="col-sm-6">
+            <h4>Basic Information</h4>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Search</a></li>
+              <li class="breadcrumb-item active">Basic Information</li>
+            </ol>
+          </div>
+        </div> -->
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+ <form id="detail" role="form" action="/basicinfo/save" role="form" method="post" enctype="multipart/form-data">
+
+<div class="row">
+
+<div class="col-md-4">
+ <div class="form-group">
+                        <label for="inputsapid">SAP ID </label>
+                        <input type="text" class="form-control" id="inputsapid" name="sapid" placeholder="SAP ID" value="<#if sapid??>${sapid}</#if>" READONLY />
+                    </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="inputemployeename">Employee Name </label>
+                        <input type="text" class="form-control" id="inputemployeename" name="employeename" placeholder="Employee Name" value="" />
+                    </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="inputphotopath">Upload Photo </label>
+                        <input type="file" class="form-control" id="imgInp" name="image11" placeholder="Upload Photo" value="" />
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="inputcurrentworklocation">Working Location </label>
+                        <input type="text" class="form-control" id="inputcurrentworklocation" name="currentworklocation" placeholder="Working Location" value="" />
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="inputemailid">Email id </label>
+                        <input type="text" class="form-control" id="inputemailid" name="emailid" placeholder="Email id" value="" />
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="inputmobileno">Mobile No </label>
+                        <input type="text" class="form-control" id="inputmobileno" name="mobileno" placeholder="Mobile No" value="" />
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="inputcurrentaddress">Current Address </label>
+                        <input type="text" class="form-control" id="inputcurrentaddress" name="currentaddress" placeholder="Current Address" value="" />
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="inputdateofjoining">Date of Joining </label>
+                        <input type="text" class="form-control" id="inputdateofjoining" name="dateofjoining" placeholder="Date of Joining" value="" />
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="inputdomainname">Domain Name </label>
+                        <input type="text" class="form-control" id="inputdomainname" name="domainname" placeholder="Domain Name" value="" />
+                    </div>
+                    </div>
+                    
+                    
+
+
+<div class="col-md-12">
+<br><h1>
+<span class="btn btn-primary float-right" id="submit">Submit & Next</span></h1>
+</div>
+
+
+</div>
+
+</form>
+
+     
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+  
+  <#include "/MasterTemplate/Footer.html">
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/dist/js/demo.js"></script>
+
+<script src="/sweet/sweetalert.js"> </script>
+   
+   <link href="/sweet/sweetalert.css" rel="stylesheet"> 
+
+<!-- Page specific script -->
+<script>
+imgInp.onchange = evt => {
+	  const [file] = imgInp.files
+	  if (file) {
+	    blah.src = URL.createObjectURL(file)
+	  }
+	  
+	}
+
+
+$(function () {
+  bsCustomFileInput.init();
+});
+
+
+
+
+$("#submit").click(function(){
+		 
+		// alert("hello");
+		 //image11  docuementname   image11err   docuementnameerr
+		  var flag = true;
+
+		 var inputsapid=$("#inputsapid").val();
+
+	 if(flag==true){ 
+	var $this = $(this);
+       $this.button('loading');
+       var form = $('#detail')[0];
+	   var data = new FormData(form);
+	   //alert("sfhgdfksdhg");
+	   
+     $.ajax({
+       	  type:"post",
+       		enctype: 'multipart/form-data',
+       	 url: "/basicinfo/save",
+       		 data: data,
+       	   processData: false, //prevent jQuery from automatically transforming the data into a query string
+       	    contentType: false,
+       	    cache: false,
+       	 success: function(msg){
+       	//	 alert("save");
+       		 swal("Success", "Sap Info Add Successfully !", "success")
+       		setTimeout(function(){	// wait for 5 secs(2)
+	          		 window.location.href= "/ExperienceSummary/"+inputsapid;
+	              }, 1000); 
+       	 //	swal("Success", "Document Uploaded Successfully !", "success");
+       	 	//inputclientid
+   
+       	 },
+       	  error:function(xhr, ajaxOptions, thrownError){
+       		alert("Error");
+       		  //swal("Error", "Something Error!", "error");
+       	  }
+       	});
+	 }
+          
+   });
+
+
+</script>
+</body>
+</html>
